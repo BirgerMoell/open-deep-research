@@ -74,6 +74,13 @@ Research and write a report:
 open-deep-research research "What are the main evaluation methods for neural information retrieval?" --final-papers 8
 ```
 
+Read the question from stdin and print only the report body, which is the most convenient mode for agent skills:
+
+```bash
+printf '%s' "How are citation graphs used in scientific literature retrieval?" | \
+  open-deep-research research --stdin --format report
+```
+
 Disable the LLM and run the retrieval-only pipeline:
 
 ```bash
@@ -84,6 +91,12 @@ Inspect the query plan only:
 
 ```bash
 open-deep-research plan "How do agentic retrieval systems differ from standard RAG?"
+```
+
+Print only the planned queries:
+
+```bash
+open-deep-research plan "How do agentic retrieval systems differ from standard RAG?" --format queries
 ```
 
 Run the local JSON API:
@@ -107,6 +120,13 @@ Each run writes:
 - `papers.json`: normalized paper metadata and scores
 - `trace.json`: planned queries, expansion edges, and selection decisions
 
+`research` also supports skill-friendly stdout modes:
+- `--format json`: full structured result
+- `--format paths`: just the output file locations
+- `--format report`: print `report.md`
+- `--format papers`: print `papers.json`
+- `--format trace`: print `trace.json`
+
 ## Deep research workflow
 
 ```text
@@ -126,6 +146,16 @@ question
 - OpenAlex does not contain all full texts. The pipeline therefore falls back to abstracts when open text cannot be fetched.
 - For large-scale ingestion, OpenAlex also provides snapshots and an official CLI: [OpenAlex CLI](https://docs.openalex.org/download-all-data/openalex-cli).
 
+## Codex skill use
+
+This repo now includes a minimal skill template at [codex_skill/open-deep-research/SKILL.md](codex_skill/open-deep-research/SKILL.md).
+
+That template assumes the CLI is installed and then uses stdin plus explicit output modes, which is the cleanest way for an agent to call the tool:
+
+```bash
+printf '%s' "$QUESTION" | open-deep-research research --stdin --format report
+```
+
 ## Official references
 
 - [OpenAlex Works docs](https://docs.openalex.org/api-entities/works)
@@ -133,4 +163,3 @@ question
 - [OpenAlex rate limits](https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication)
 - [OpenAI Chat Completions](https://platform.openai.com/docs/api-reference/chat/create)
 - [Responses vs Chat Completions](https://platform.openai.com/docs/guides/responses-vs-chat-completions)
-
