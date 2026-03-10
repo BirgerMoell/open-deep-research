@@ -61,7 +61,13 @@ pip install -e '.[pdf]'
 Install directly from GitHub without cloning:
 
 ```bash
-pip install "open-deep-research @ git+https://github.com/BirgerMoell/open-deep-research.git"
+pip install "open-deep-research-cli @ git+https://github.com/BirgerMoell/open-deep-research.git"
+```
+
+Install from PyPI:
+
+```bash
+pip install open-deep-research-cli
 ```
 
 ## Environment variables
