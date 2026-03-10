@@ -58,6 +58,12 @@ If you also want PDF extraction support:
 pip install -e '.[pdf]'
 ```
 
+Install directly from GitHub without cloning:
+
+```bash
+pip install "open-deep-research @ git+https://github.com/BirgerMoell/open-deep-research.git"
+```
+
 ## Environment variables
 
 - `OPENALEX_MAILTO`: recommended for OpenAlex polite-pool access

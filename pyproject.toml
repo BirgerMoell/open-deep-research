@@ -8,11 +8,29 @@ version = "0.1.0"
 description = "OpenAlex-based deep research agent with an OpenAI-compatible LLM interface."
 readme = "README.md"
 requires-python = ">=3.9"
-license = { text = "MIT" }
+license = "MIT"
 authors = [
-  { name = "Birger and Codex" }
+  { name = "Birger Moll", email = "birger@example.com" }
+]
+keywords = ["openalex", "research", "literature-review", "cli", "llm", "information-retrieval"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+  "Topic :: Text Processing :: Indexing",
 ]
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/BirgerMoell/open-deep-research"
+Repository = "https://github.com/BirgerMoell/open-deep-research"
+Issues = "https://github.com/BirgerMoell/open-deep-research/issues"
 
 [project.optional-dependencies]
 pdf = ["pypdf>=5.0.0"]
@@ -25,4 +43,3 @@ package-dir = { "" = "src" }
 
 [tool.setuptools.packages.find]
 where = ["src"]
-
