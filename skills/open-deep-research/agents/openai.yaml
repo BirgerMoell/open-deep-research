@@ -1,0 +1,6 @@
+interface:
+  display_name: "Open Deep Research"
+  short_description: "Clinical and scholarly literature research"
+  default_prompt: "Use $open-deep-research to investigate a clinical or scholarly question with OpenAlex-backed deep research."
+policy:
+  allow_implicit_invocation: true
